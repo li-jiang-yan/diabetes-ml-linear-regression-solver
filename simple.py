@@ -3,6 +3,7 @@ from sklearn.model_selection import train_test_split
 from sklearn import linear_model
 import math
 import matplotlib.pyplot as plt
+from sklearn.metrics import r2_score
 
 # Load diabetes dataset
 diabetes = load_diabetes()
@@ -37,5 +38,7 @@ for feature_num in range(nsubplots):
     ax.set_xlabel(feature_name)
     ax.set_ylabel("target")
     ax.legend()
+
+fig.suptitle("Diabetes simple multivariable linear regression, R2 = {:.2f}".format(r2_score(y_test, reg.predict(X_test))))
 
 plt.show()
