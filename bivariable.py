@@ -14,3 +14,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=1)
 # It looks like only the variables with indexes 2 and 8 have a correlation coefficient greater than 0.5 (moderate correlation)
 corrcoef = np.corrcoef(X_train, y=y_train, rowvar=False)
 print(np.argwhere(np.abs(corrcoef[-1,:-1])>0.5)) # [[2], [8]]
+
+# Redefine features to be considered
+X = X[:, np.array([2, 8])]
